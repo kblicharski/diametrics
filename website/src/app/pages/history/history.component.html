@@ -1,11 +1,26 @@
-<div class="container">
-  <div class="row">
-    <div class="col-xs-12">
-      <mat-form-field>
-        <input matInput [matDatepicker]="picker" placeholder="">
-        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-        <mat-datepicker #picker></mat-datepicker>
-      </mat-form-field>
-    </div>
+<div class="row">
+  <div class="col-xs-12">
+    <mat-form-field>
+      <input matInput [matDatepicker]="picker" placeholder="">
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
   </div>
 </div>
+<br>
+<div class="row">
+  <div class="col-xs-12">
+    <h1>Graph Placeholder</h1>
+  </div>
+</div>
+<br>
+<div class="row">
+  <div class="col-xs-6">
+    <button mat-button [routerLink]="['add-bg']">Add BG Reading</button>
+  </div>
+  <div class="col-xs-6">
+    <button mat-button [routerLink]="['add-event']">Add Event</button>
+  </div>
+</div>
+<br>
+<router-outlet></router-outlet>
