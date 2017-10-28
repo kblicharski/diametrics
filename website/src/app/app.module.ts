@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatListModule } from "@angular/material";
+import { MatListModule, MatDatepickerModule, MatNativeDateModule } from '@angular/material';
 
 import { AppComponent } from './app.component';
 import { AboutComponent } from './pages/about/about.component';
@@ -10,6 +10,7 @@ import { PageNotFoundComponent } from './utility/page-not-found/page-not-found.c
 import { AppRoutingModule } from './app-routing.module';
 import { HeaderItemComponent } from './header/header-item/header-item.component';
 import { HeaderComponent } from './header/header.component';
+import { HistoryComponent } from './pages/history/history.component';
 
 @NgModule({
   declarations: [
@@ -17,13 +18,16 @@ import { HeaderComponent } from './header/header.component';
     AboutComponent,
     PageNotFoundComponent,
     HeaderItemComponent,
-    HeaderComponent
+    HeaderComponent,
+    HistoryComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    MatListModule
+    MatListModule,
+    MatDatepickerModule,
+    MatNativeDateModule
   ],
   providers: [],
   bootstrap: [AppComponent]
