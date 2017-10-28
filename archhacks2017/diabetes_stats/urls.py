@@ -10,5 +10,5 @@ router.register(r'exerciseevents', views.ExerciseEventViewSet)
 router.register(r'foodevents', views.FoodEventViewSet)
 
 urlpatterns = [
-    url(r'^api/', include(router.urls)),
+    url(r'^', include(router.urls)),
 ]
