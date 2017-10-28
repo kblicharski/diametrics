@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { RestService } from '../../../api/rest.service';
 
 @Component({
@@ -6,7 +6,7 @@ import { RestService } from '../../../api/rest.service';
   templateUrl: './add-event.component.html',
   styleUrls: ['./add-event.component.css']
 })
-export class AddEventComponent implements OnInit {
+export class AddEventComponent {
   eventTypes = [
     'Exercise',
     'Food'
@@ -16,6 +16,8 @@ export class AddEventComponent implements OnInit {
   duration: string;
   carbs: string;
   insulin: string;
+
+  constructor(private restService: RestService) { }
 
   validForm() {
     if ((this.validInput(this.duration)) || (this.validInput(
@@ -27,11 +29,6 @@ export class AddEventComponent implements OnInit {
 
   validInput(formValue: string) {
     return /^\+?([1-9]\d*)$/.test(formValue);
-  }
-
-  constructor(private restService: RestService) { }
-
-  ngOnInit() {
   }
 
   formFilled(): boolean {
