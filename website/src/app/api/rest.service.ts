@@ -24,4 +24,9 @@ export class RestService {
     return this.http.put(url, data);
   }
 
+  delete(): Observable<Object> {
+    const url = RestService.baseUrl;
+    return this.http.delete(url);
+  }
+
 }

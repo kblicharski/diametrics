@@ -24,4 +24,9 @@ export class ApiTestComponent {
     );
   }
 
+  deleteData() {
+    this.restService.delete().subscribe();
+    this.getData();
+  }
+
 }
