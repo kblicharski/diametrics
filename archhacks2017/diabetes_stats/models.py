@@ -3,21 +3,24 @@ from django.db import models
 
 
 class BloodGlucoseEvent(models.Model):
+    user_profile = models.OneToOneField(UserProfile, on_delete=models.CASCADE)
     time = models.DateTimeField(auto_now_add=True)
-    value = models.DecimalField()
+    value = models.DecimalField(decimal_places=1, max_digits=6)
 
 
 class ExerciseEvent(models.Model):
+    user_profile = models.OneToOneField(UserProfile, on_delete=models.CASCADE)
     time = models.DateTimeField(auto_now_add=True)
     type = models.CharField(max_length=200)
     duration = models.DurationField()
 
 
 class FoodEvent(models.Model):
+    user_profile = models.OneToOneField(UserProfile, on_delete=models.CASCADE)
     time = models.DateTimeField(auto_now_add=True)
     name = models.CharField(max_length=250)
-    carb_count = models.DecimalField()
-    insulin_count = models.DecimalField()
+    carb_count = models.DecimalField(decimal_places=1, max_digits=6)
+    insulin_count = models.DecimalField(decimal_places=1, max_digits=6)
 
 
 class UserProfile(models.Model):
