@@ -1,3 +1,8 @@
 from django.contrib import admin
 
-# Register your models here.
+from .models import BloodGlucoseEvent, ExerciseEvent, FoodEvent, UserProfile
+
+admin.site.register(BloodGlucoseEvent)
+admin.site.register(ExerciseEvent)
+admin.site.register(FoodEvent)
+admin.site.register(UserProfile)
