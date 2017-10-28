@@ -1,0 +1,32 @@
+<nav class="navbar navbar-toggleable-md navbar-inverse bg-inverse">
+  <button
+    class="navbar-toggler navbar-toggler-right"
+    type="button"
+    data-toggle="collapse"
+    data-target="#navbarCollapse"
+    aria-controls="navbarCollapse"
+    aria-expanded="false"
+    aria-label="Toggle Navigation"
+  ><span class="navbar-toggler-icon"></span></button>
+  <a class="navbar-brand" routerLink="about">ProjectName</a>
+  <div class="collapse navbar-collapse" id="navbarCollapse">
+    <ul class="navbar-nav mr-auto">
+      <li class="navbar-btn">
+        <app-header-item
+          title="About"
+          link="about"
+          icon="fa-info-circle"
+        ></app-header-item>
+        <app-header-item
+          title="History"
+          link="history"
+          icon="fa-info-circle"
+        ></app-header-item>
+        <app-header-item
+          title="Profile"
+          link="profile"
+          icon="fa-info-circle"
+        ></app-header-item>
+    </ul>
+  </div>
+</nav>
