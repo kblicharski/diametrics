@@ -1,0 +1,20 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <span>PUT Test</span>
+      <button mat-button (click)="putData()">Click me!</button>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-12">
+      <span>GET Test</span>
+      <button mat-button (click)="getData()">Click me!</button>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-12" *ngIf="data">
+      <span>Data</span>
+      <p>{{ data|json }}</p>
+    </div>
+  </div>
+</div>
