@@ -1,6 +1,8 @@
 /* You can add global styles to this file, and also import other style files */
+@import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
+
 @import url("assets/css/normalize.css");
-@import url("assets/css/bootstrap.min.css");
+@import url("assets/css/bootstrap-theme.min.css");
 @import url("assets/css/bootstrap-theme.min.css");
 @import url("assets/css/tether.min.css");
 @import url("assets/css/font-awesome.min.css");
