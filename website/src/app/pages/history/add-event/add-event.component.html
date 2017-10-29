@@ -50,7 +50,7 @@
 <div *ngIf="formFilled() && !validForm() && selectedType; then displayErrors"></div>
 <ng-template #displayErrors>
   <div class="col-xs-12">
-    <h3><b>One or more form fields are non-integer values.</b></h3>
+    <h3><b>One or more form fields are not positive integer values.</b></h3>
   </div>
 </ng-template>
 
