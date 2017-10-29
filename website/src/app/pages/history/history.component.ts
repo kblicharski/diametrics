@@ -1,5 +1,4 @@
-import { Component, OnInit } from '@angular/core';
-import { Router } from "@angular/router";
+import { Component } from '@angular/core';
 import { RestService } from '../../api/rest.service';
 
 @Component({
@@ -8,11 +7,6 @@ import { RestService } from '../../api/rest.service';
   styleUrls: ['./history.component.css'],
   providers: [RestService]
 })
-export class HistoryComponent implements OnInit {
-
-  constructor(private router: Router) { }
-
-  ngOnInit() {
-  }
-
+export class HistoryComponent {
+  userName = 'madsilva';
 }

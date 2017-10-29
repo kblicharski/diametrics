@@ -1,76 +1,91 @@
-<div class="row">
-  <div class="col-xs-12">
-    <mat-form-field class="mat-form-field">
-      <mat-select class="mat-select" placeholder="Event Type" [(ngModel)]="selectedType">
-        <mat-option *ngFor="let type of eventTypes" [value]="type">
-          {{ type }}
-        </mat-option>
-      </mat-select>
-    </mat-form-field>
+<br>
+<div class="mat-title">Enter your event information:</div>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <mat-form-field class="mat-form-field">
+        <mat-select class="mat-select" placeholder="Event Type" [(ngModel)]="selectedType">
+          <mat-option *ngFor="let type of eventTypes" [value]="type">
+            {{ type }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
   </div>
+
+  <div *ngIf="selectedType && selectedType === 'Exercise'; then exerciseForm"></div>
+  <ng-template #exerciseForm>
+    <div class="row">
+      <div class="col-xs-12">
+        <mat-form-field class="example-full-width mat-form-field">
+          <input matInput placeholder="Duration (minutes)" [(ngModel)]="duration">
+        </mat-form-field>
+      </div>
+    </div>
+  </ng-template>
+
+  <div *ngIf="selectedType && selectedType === 'Food'; then foodForm"></div>
+  <ng-template #foodForm>
+    <div class="row">
+      <div class="col-xs-12">
+        <mat-form-field class="mat-form-field">
+          <input matInput class="mat-input-element" placeholder="Carbs" [(ngModel)]="carbs">
+        </mat-form-field>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xs-12">
+        <mat-form-field class="mat-form-field">
+          <input matInput class="mat-input-element" placeholder="Insulin Taken" [(ngModel)]="insulin">
+        </mat-form-field>
+      </div>
+    </div>
+  </ng-template>
+
+  <div
+    *ngIf="formFilled() && validForm() && toInt(duration) <= 300 || (toInt(carbs) <= 200 && toInt(insulin) <= 30); then submitFormButton"></div>
+  <ng-template #submitFormButton>
+    <div class="row">
+      <div class="col-xs-12">
+        <button class="mat-button" (click)="submitForm()" [routerLink]="['/history']">Submit</button>
+      </div>
+    </div>
+  </ng-template>
+
+  <div *ngIf="formFilled() && !validForm() && selectedType; then displayErrors"></div>
+  <ng-template #displayErrors>
+    <div class="row">
+      <div class="col-xs-12 mat-error">
+        <h3><b>One or more form fields are not positive integer values.</b></h3>
+      </div>
+    </div>
+  </ng-template>
+
+  <div *ngIf="toInt(duration) > 300; then durationError"></div>
+  <ng-template #durationError>
+    <div class="row">
+      <div class="col-xs-12 mat-error">
+        <h3><b>Exercise is capped at 300 minutes.</b></h3>
+      </div>
+    </div>
+  </ng-template>
+
+  <div *ngIf="toInt(carbs) > 200; then carbError"></div>
+  <ng-template #carbError>
+    <div class="row">
+      <div class="col-xs-12 mat-error">
+        <h3><b>Carb count is capped at 200.</b></h3>
+      </div>
+    </div>
+  </ng-template>
+
+  <div *ngIf="toInt(insulin) > 30; then insulinError"></div>
+  <ng-template #insulinError>
+    <div class="row">
+      <div class="col-xs-12 mat-error">
+        <h3><b>Insulin count is capped at 30.</b></h3>
+      </div>
+    </div>
+  </ng-template>
 </div>
-
-<div *ngIf="selectedType && selectedType === 'Exercise'; then exerciseForm"></div>
-<ng-template #exerciseForm>
-  <div class="row">
-    <div class="col-xs-12">
-      <mat-form-field class="example-full-width mat-form-field">
-        <input matInput placeholder="Duration (minutes)" [(ngModel)]="duration">
-      </mat-form-field>
-    </div>
-  </div>
-</ng-template>
-
-<div *ngIf="selectedType && selectedType === 'Food'; then foodForm"></div>
-<ng-template #foodForm>
-  <div class="row">
-    <div class="col-xs-12">
-      <mat-form-field class="mat-form-field">
-        <input matInput class="mat-input-element" placeholder="Carbs" [(ngModel)]="carbs">
-      </mat-form-field>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-xs-12">
-      <mat-form-field class="mat-form-field">
-        <input matInput class="mat-input-element" placeholder="Insulin Taken" [(ngModel)]="insulin">
-      </mat-form-field>
-    </div>
-  </div>
-</ng-template>
-
-<div
-  *ngIf="formFilled() && validForm() && toInt(duration) <= 300 || (toInt(carbs) <= 200 && toInt(insulin) <= 30); then submitFormButton"></div>
-<ng-template #submitFormButton>
-  <div class="col-xs-12">
-    <button class="mat-button" (click)="submitForm()" [routerLink]="['/history']">Submit</button>
-  </div>
-</ng-template>
-
-<div *ngIf="formFilled() && !validForm() && selectedType; then displayErrors"></div>
-<ng-template #displayErrors>
-  <div class="col-xs-12 mat-error">
-    <h3><b>One or more form fields are not positive integer values.</b></h3>
-  </div>
-</ng-template>
-
-<div *ngIf="toInt(duration) > 300; then durationError"></div>
-<ng-template #durationError>
-  <div class="col-xs-12 mat-error">
-    <h3><b>Exercise is capped at 300 minutes.</b></h3>
-  </div>
-</ng-template>
-
-<div *ngIf="toInt(carbs) > 200; then carbError"></div>
-<ng-template #carbError>
-  <div class="col-xs-12 mat-error">
-    <h3><b>Carb count is capped at 200.</b></h3>
-  </div>
-</ng-template>
-
-<div *ngIf="toInt(insulin) > 30; then insulinError"></div>
-<ng-template #insulinError>
-  <div class="col-xs-12 mat-error">
-    <h3><b>Insulin count is capped at 30.</b></h3>
-  </div>
-</ng-template>
+<br>

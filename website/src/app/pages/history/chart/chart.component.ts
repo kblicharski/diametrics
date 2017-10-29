@@ -73,9 +73,9 @@ export class ChartComponent {
   }
 
   randomAdd(): void {
-    const x = this.currentX + (Math.random() * (1000 * 60 * 60 * 3)) + (1000 * 60 * 30);
+    const x = this.currentX + (Math.random() * (1000 * 60 * 60 * 1.5)) + (1000 * 60 * 30);
     this.currentX = x;
-    const y = (Math.random() * 150) + 50;
+    const y = (Math.random() * 100) + 50;
     const point: Point = {x, y};
     this.chart.addPoint(point, 0, true, true);
   }

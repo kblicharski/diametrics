@@ -4,28 +4,24 @@
           aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
-  <a class="navbar-brand" routerLink="about">DiaMetrics</a>
+  <a href="#" class="navbar-left"><img src="assets/brand.png" alt="" width="38" height="38"></a>
+  <a class="navbar-brand" style="padding-left: 10px;" routerLink="about">DiaMetrics</a>
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <app-header-item
         title="About"
         link="about"
-        icon=""
-      ></app-header-item>
-      <app-header-item
-        title="History"
-        link="history"
-        icon=""
-      ></app-header-item>
-      <app-header-item
-        title="API Test"
-        link="api"
-        icon=""
+        icon="fa-question-circle-o"
       ></app-header-item>
       <app-header-item
         title="Profile"
-        link="profile"
-        icon=""
+        link="history"
+        icon="fa-user-circle"
+      ></app-header-item>
+      <app-header-item
+        title="Settings"
+        link="api"
+        icon="fa-wrench"
       ></app-header-item>
     </ul>
   </div>
