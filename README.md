@@ -19,7 +19,7 @@ and then enter commands
 ```
 cd website
 npm install
-n serve
+ng serve
 ```
 
 and then navigate to
