@@ -10,15 +10,18 @@ It gives helpful instructions based on blood-glucose level to help keep it in a 
 ## How do I use it?
 
 run
-npm install -g @angular/cli@latest
+`npm install -g @angular/cli@latest`
 
 clone the repository
-git clone https://github.com/kblicharski/archhacks2017
+`git clone https://github.com/kblicharski/archhacks2017`
 
+and then enter commands
+```
 cd website
 npm install
-ng serve
+n serve
+```
 
 and then navigate to
-localhost:4200
+`localhost:4200`
 in your browser
