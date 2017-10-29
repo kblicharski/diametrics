@@ -10,6 +10,10 @@ export class AddBgComponent {
 
   bgReading: string;
 
+  isNumeric(num: any): boolean {
+    return !isNaN(num);
+  }
+
   validReading(formValue: string): boolean {
     return /^\+?([1-9]\d*)$/.test(formValue);
   }
