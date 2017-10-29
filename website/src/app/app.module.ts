@@ -21,6 +21,7 @@ import { ApiTestComponent } from './api/api-test/api-test.component';
 import { AddBgComponent } from './pages/history/add-bg/add-bg.component';
 import { AddEventComponent } from './pages/history/add-event/add-event.component';
 import { ChartComponent } from './pages/history/chart/chart.component';
+import { ProfileComponent } from './pages/profile/profile.component';
 
 
 @NgModule({
@@ -34,7 +35,8 @@ import { ChartComponent } from './pages/history/chart/chart.component';
     ApiTestComponent,
     AddBgComponent,
     AddEventComponent,
-    ChartComponent
+    ChartComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,
