@@ -9,35 +9,6 @@ import * as Highcharts from 'highcharts';
   styleUrls: ['./chart.component.css']
 })
 export class ChartComponent {
-  // chart = new Chart({
-  //   chart: {
-  //     type: 'line'
-  //   },
-  //   title: {
-  //     text: 'Blood Glucose Levels'
-  //   },
-  //   credits: {
-  //     enabled: false
-  //   },
-  //   series: [{
-  //     index: 0,
-  //     data: (function () {
-  //       // generate an array of random data
-  //       var data = [],
-  //         time = (new Date()).getTime(),
-  //         i;
-  //
-  //       for (i = -19; i <= 0; i += 1) {
-  //         data.push({
-  //           x: time + i * 1000,
-  //           y: Math.random() * (150) + 50
-  //         });
-  //       }
-  //       return data;
-  //     }())
-  //   }]
-  // });
-
   chart = new Chart({
     chart: {
       type: 'spline',
@@ -76,7 +47,7 @@ export class ChartComponent {
       enabled: false
     },
     series: [{
-      name: 'Random data',
+      name: 'Blood Glucose Data',
       data: this.generateData()
     }]
   });

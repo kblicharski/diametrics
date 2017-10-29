@@ -1,13 +1,15 @@
 <app-chart></app-chart>
-
-<div class="row">
-  <div class="col-xs-6">
-    <button mat-button [routerLink]="['add-bg']">Add BG Reading</button>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <button class="mat-button" [routerLink]="['add-bg']">Add BG Reading</button>
+    </div>
   </div>
-  <div class="col-xs-6">
-    <button mat-button [routerLink]="['add-event']">Add Event</button>
+  <div class="row">
+    <div class="col-xs-12">
+      <button class="mat-button" [routerLink]="['add-event']">Add Event</button>
+    </div>
   </div>
+  <br>
+  <router-outlet></router-outlet>
 </div>
-
-<br>
-<router-outlet></router-outlet>
