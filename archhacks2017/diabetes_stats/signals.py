@@ -1,6 +1,6 @@
 import numpy as np
 from django.dispatch import receiver
-from django.core.signals import post_save
+from django.db.models.signals import post_save
 
 from .models import BloodGlucoseEvent, ExerciseEvent, FoodEvent
 
