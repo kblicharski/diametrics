@@ -4,7 +4,7 @@ import { Observable } from 'rxjs/Observable';
 
 @Injectable()
 export class RestService {
-  private static baseUrl = 'http://54.89.230.73:8080/bloodglucoseevents/?format=json';
+  private static baseUrl = 'http://34.235.225.63:8080/bloodglucoseevents/';
 
   constructor(private http: HttpClient) {}
 
