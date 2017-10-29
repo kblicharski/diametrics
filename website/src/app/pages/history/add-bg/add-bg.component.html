@@ -6,7 +6,7 @@
   </div>
 </div>
 
-<div *ngIf="validReading() && reasonableReading(); then submitFormButton"></div>
+<div *ngIf="bgReading && validReading(bgReading) && reasonableReading(); then submitFormButton"></div>
 <ng-template #submitFormButton>
   <div class="col-xs-12">
     <button mat-button (click)="submitForm()" [routerLink]="['/history']">Submit</button>
