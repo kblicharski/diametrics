@@ -4,7 +4,7 @@ import { Observable } from 'rxjs/Observable';
 
 @Injectable()
 export class RestService {
-  private static baseUrl = 'https://archhacks2017project.firebaseio.com/.json';
+  private static baseUrl = 'http://54.89.230.73:8080/bloodglucoseevents/?format=json';
 
   constructor(private http: HttpClient) {}
 
@@ -13,14 +13,8 @@ export class RestService {
     return this.http.get(url);
   }
 
-  put(): Observable<Object> {
+  put(data: Object): Observable<Object> {
     const url = RestService.baseUrl;
-    const data = {
-      'alanisawesome': {
-        'name': 'Alan Turing',
-        'birthday': 'June 23, 1912'
-      }
-    };
     return this.http.put(url, data);
   }
 

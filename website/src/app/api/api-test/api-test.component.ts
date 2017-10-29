@@ -13,13 +13,16 @@ export class ApiTestComponent {
   constructor(private restService: RestService) {}
 
   putData() {
-    this.restService.put().subscribe();
+    this.restService.put({}).subscribe();
   }
 
   getData() {
     this.restService.get().subscribe(
       (data: Object) => {
+        console.log('Received ${data}');
         this.data = data;
+      }, (error) => {
+        console.log(error);
       }
     );
   }
