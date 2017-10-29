@@ -1,5 +1,4 @@
 from datetime import timedelta
-from functools import reduce
 
 from django.contrib.auth.models import User
 from django.db import models
@@ -7,14 +6,14 @@ from django.utils import timezone
 
 
 class UserProfile(models.Model):
-    user = models.OneToOneField(User)
+    username = models.CharField(max_length=50)
     # ratio is 1:insulin_to_carb_ratio
     insulin_to_carb_ratio = models.IntegerField()
     # ratio is 1:correction_factor
     correction_factor = models.IntegerField()
 
     def __str__(self):
-        return self.user.username
+        return self.username
 
     def number_of_points_logged(self):
         blood = BloodGlucoseEvent.objects.all().count()
@@ -26,6 +25,7 @@ class UserProfile(models.Model):
         starttime = timezone.now() - timedelta(days=7)
         endtime = timezone.now()
         blood = BloodGlucoseEvent.objects.filter(time__range=[starttime, endtime]).all()
+        sum = 0
         for b in blood:
             sum += b.value
         return sum/blood.count()

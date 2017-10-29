@@ -5,6 +5,7 @@ from . import views
 
 
 router = DefaultRouter()
+router.register(r'userprofiles', views.UserProfileViewSet)
 router.register(r'bloodglucoseevents', views.BloodGlucoseEventViewSet)
 router.register(r'exerciseevents', views.ExerciseEventViewSet)
 router.register(r'foodevents', views.FoodEventViewSet)

@@ -1,6 +1,12 @@
 from rest_framework import serializers
 
-from .models import BloodGlucoseEvent, ExerciseEvent, FoodEvent
+from .models import BloodGlucoseEvent, ExerciseEvent, FoodEvent, UserProfile
+
+
+class UserProfileSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = UserProfile
+        fields = ('username', 'insulin_to_carb_ratio', 'correction_factor')
 
 
 class BloodGlucoseEventSerializer(serializers.ModelSerializer):

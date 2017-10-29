@@ -6,8 +6,13 @@ from rest_framework import viewsets, renderers
 from rest_framework.decorators import detail_route, list_route
 from rest_framework.response import Response
 
-from .models import BloodGlucoseEvent, ExerciseEvent, FoodEvent
-from .serializers import BloodGlucoseEventSerializer, ExerciseEventSerializer, FoodEventSerializer
+from .models import BloodGlucoseEvent, ExerciseEvent, FoodEvent, UserProfile
+from .serializers import BloodGlucoseEventSerializer, ExerciseEventSerializer, FoodEventSerializer, UserProfileSerializer
+
+
+class UserProfileViewSet(viewsets.ModelViewSet):
+    queryset = UserProfile.objects.all()
+    serializer_class = UserProfileSerializer
 
 
 class BloodGlucoseEventViewSet(viewsets.ModelViewSet):
