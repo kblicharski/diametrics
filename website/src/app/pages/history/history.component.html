@@ -1,16 +1,21 @@
 <div class="mat-title">Welcome back, <b>{{ userName }}</b></div>
-
-<app-chart></app-chart>
+<div class="col-xs-6">
+  <mat-card style="padding: 10px;"><b>Insulin to Carb Ratio</b>: 1 to {{ icRatio }}</mat-card>
+</div>
+<div class="col-xs-6">
+  <mat-card style="padding: 10px;"><b>Correction Factor</b>: 1 to {{ correctionFactor }}</mat-card>
+</div>
+<br>
+<app-chart (newDataReceived)="add($event)"></app-chart>
 
 <div class="container">
   <div class="row">
     <div class="col-xs-12">
-      <button class="mat-button" [routerLink]="['add-bg']">Add BG Reading</button>
+      <button class="mat-raised-button" [routerLink]="['add-bg']">Add BG Reading</button>
       <br>
-      <button class="mat-button" [routerLink]="['add-event']">Add Food/Exercise Event</button>
+      <button class="mat-raised-button" [routerLink]="['add-event']">Add Food/Exercise Event</button>
     </div>
     <br>
-
   </div>
 </div>
 <div class="container">

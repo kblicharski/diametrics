@@ -1,5 +1,7 @@
-import { Component } from '@angular/core';
-import { RestService } from '../../../api/rest.service';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Router } from "@angular/router";
+import { Subscription } from "rxjs/Subscription";
+import { DataEmitterService } from "../../data-emitter.service";
 
 @Component({
   selector: 'app-add-event',
@@ -17,7 +19,7 @@ export class AddEventComponent {
   carbs: string;
   insulin: string;
 
-  constructor(private restService: RestService) { }
+  constructor(private _myCommunicationService: DataEmitterService) {}
 
   validForm() {
     if ((this.validInput(this.duration)) || (this.validInput(
@@ -39,7 +41,14 @@ export class AddEventComponent {
   }
 
   submitForm() {
-    return;
+    let data: Object;
+    if (this.selectedType === 'Food') {
+      data = {insulin: this.insulin, carbs: this.carbs};
+    } else {
+      data = {duration: this.duration};
+    }
+    console.log('submitted');
+    this._myCommunicationService.emitChange(data);
   }
 
   toInt(input: string): number {

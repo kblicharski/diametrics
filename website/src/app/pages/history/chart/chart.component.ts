@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Chart } from 'angular-highcharts';
 import { Point } from 'angular-highcharts/chart';
 import * as Highcharts from 'highcharts';
+import { DataEmitterService } from "../../data-emitter.service";
 
 @Component({
   selector: 'app-chart',
@@ -31,11 +32,6 @@ export class ChartComponent {
       title: {
         text: 'Blood Glucose (mg/dL)'
       },
-      // plotLines: [{
-      //   value: 0,
-      //   width: 1,
-      //   color: '#808080'
-      // }],
       plotLines: [
         {
           color: 'red',
@@ -45,7 +41,7 @@ export class ChartComponent {
         {
           color: 'yellow',
           value: 200,
-          width:3
+          width: 3
         }
       ],
     },
@@ -69,6 +65,13 @@ export class ChartComponent {
 
   currentX: number;
 
+  constructor(private _myCommunicationService: DataEmitterService) {
+    _myCommunicationService.chartEmitted$.subscribe(myMessage => {
+      console.log('received in chart');
+      this.add(myMessage);
+    });
+  }
+
   generateData(): Point[] {
     const data: Point[] = [];
     const time = (new Date()).getTime();
@@ -82,13 +85,17 @@ export class ChartComponent {
     return data;
   }
 
-  add(x: number, y: number): void {
+  add(event): void {
+    console.log(event);
+    const y = parseFloat(event.reading);
+    const x = (new Date()).getTime() + 1000 * 60 * 30 * 9;
     const point: Point = {x, y};
+    console.log(point);
     this.chart.addPoint(point, 0, true, true);
   }
 
   randomAdd(): void {
-    const x = this.currentX + (Math.random() * (1000 * 60 * 60 * 1.5)) + (1000 * 60 * 30);
+    const x = this.currentX + (Math.random() * (1000 * 60 * 60 * 2)) + (1000 * 60 * 30);
     this.currentX = x;
     const y = (Math.random() * 100) + 50;
     const point: Point = {x, y};

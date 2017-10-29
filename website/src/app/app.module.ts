@@ -5,7 +5,8 @@ import { FormsModule } from "@angular/forms";
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {
   MatDatepickerModule, MatListModule, MatNativeDateModule, MatFormFieldModule,
-  MatSelectModule, MatOptionModule, MatInputModule
+  MatSelectModule, MatOptionModule, MatInputModule, MatCardModule,
+  MatButtonModule
 } from '@angular/material';
 import { ChartModule } from 'angular-highcharts';
 
@@ -22,6 +23,7 @@ import { AddBgComponent } from './pages/history/add-bg/add-bg.component';
 import { AddEventComponent } from './pages/history/add-event/add-event.component';
 import { ChartComponent } from './pages/history/chart/chart.component';
 import { ProfileComponent } from './pages/profile/profile.component';
+import { DataEmitterService } from "./pages/data-emitter.service";
 
 
 @NgModule({
@@ -51,9 +53,11 @@ import { ProfileComponent } from './pages/profile/profile.component';
     MatSelectModule,
     MatOptionModule,
     MatInputModule,
-    ChartModule
+    ChartModule,
+    MatCardModule,
+    MatButtonModule
   ],
-  providers: [],
+  providers: [DataEmitterService],
   bootstrap: [AppComponent]
 })
 export class AppModule {}
