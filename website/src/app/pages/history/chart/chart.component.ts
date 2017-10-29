@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { Chart } from 'angular-highcharts';
-import * as Highcharts from 'Highcharts';
 import { Point } from 'angular-highcharts/chart';
+import * as Highcharts from 'highcharts';
 
 @Component({
   selector: 'app-chart',
@@ -102,7 +102,8 @@ export class ChartComponent {
   }
 
   randomAdd(): void {
-    const x = this.currentX + (Math.random() * (1000 * 60 * 60 * 3)) + (1000 * 60 * 60 * 3);
+    const x = this.currentX + (Math.random() * (1000 * 60 * 60 * 3)) + (1000 * 60 * 30);
+    this.currentX = x;
     const y = (Math.random() * 150) + 50;
     const point: Point = {x, y};
     this.chart.addPoint(point, 0, true, true);
