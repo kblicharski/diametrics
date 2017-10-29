@@ -7,6 +7,7 @@ import {
   MatDatepickerModule, MatListModule, MatNativeDateModule, MatFormFieldModule,
   MatSelectModule, MatOptionModule, MatInputModule
 } from '@angular/material';
+import { ChartModule } from 'angular-highcharts';
 
 import { AppComponent } from './app.component';
 import { AboutComponent } from './pages/about/about.component';
@@ -19,6 +20,8 @@ import { HistoryComponent } from './pages/history/history.component';
 import { ApiTestComponent } from './api/api-test/api-test.component';
 import { AddBgComponent } from './pages/history/add-bg/add-bg.component';
 import { AddEventComponent } from './pages/history/add-event/add-event.component';
+import { ChartComponent } from './pages/history/chart/chart.component';
+
 
 @NgModule({
   declarations: [
@@ -30,7 +33,8 @@ import { AddEventComponent } from './pages/history/add-event/add-event.component
     HistoryComponent,
     ApiTestComponent,
     AddBgComponent,
-    AddEventComponent
+    AddEventComponent,
+    ChartComponent
   ],
   imports: [
     BrowserModule,
@@ -44,7 +48,8 @@ import { AddEventComponent } from './pages/history/add-event/add-event.component
     MatFormFieldModule,
     MatSelectModule,
     MatOptionModule,
-    MatInputModule
+    MatInputModule,
+    ChartModule
   ],
   providers: [],
   bootstrap: [AppComponent]

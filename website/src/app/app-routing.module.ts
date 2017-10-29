@@ -7,12 +7,14 @@ import { HistoryComponent } from './pages/history/history.component';
 import { ApiTestComponent } from './api/api-test/api-test.component';
 import { AddBgComponent } from './pages/history/add-bg/add-bg.component';
 import { AddEventComponent } from './pages/history/add-event/add-event.component';
+import { ChartComponent } from './pages/history/chart/chart.component';
 
 const appRoutes: Routes = [
   {path: 'about', component: AboutComponent},
   {path: 'history', component: HistoryComponent, children: [
     { path: 'add-bg', component: AddBgComponent },
-    { path: 'add-event', component: AddEventComponent }
+    { path: 'add-event', component: AddEventComponent },
+    { path: 'chart', component: ChartComponent }
   ]},
   {path: 'api', component: ApiTestComponent},
   {path: '', redirectTo: '/about', pathMatch: 'full'},
