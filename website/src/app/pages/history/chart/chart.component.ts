@@ -22,21 +22,36 @@ export class ChartComponent {
     },
     xAxis: {
       type: 'datetime',
-      tickAmount: 20
+      tickAmount: 10
     },
     yAxis: {
+      tickInterval: 50,
+      min: 20,
+      max: 300,
       title: {
         text: 'Blood Glucose (mg/dL)'
       },
-      plotLines: [{
-        value: 0,
-        width: 1,
-        color: '#808080'
-      }]
+      // plotLines: [{
+      //   value: 0,
+      //   width: 1,
+      //   color: '#808080'
+      // }],
+      plotLines: [
+        {
+          color: 'red',
+          value: 75,
+          width: 3
+        },
+        {
+          color: 'yellow',
+          value: 200,
+          width:3
+        }
+      ],
     },
     tooltip: {
       formatter: function () {
-        return '<b>' + this.y + '</b><br/>' +
+        return '<b>' + Math.floor(this.y) + '</b><br/>' +
           Highcharts.dateFormat('%Y-%m-%d %H:%M:%S', this.x) + '<br/>';
       }
     },
