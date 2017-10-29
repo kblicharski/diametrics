@@ -8,9 +8,9 @@ from django.utils import timezone
 class UserProfile(models.Model):
     username = models.CharField(max_length=50)
     # ratio is 1:insulin_to_carb_ratio
-    insulin_to_carb_ratio = models.IntegerField()
+    insulin_to_carb_ratio = models.DecimalField(decimal_places=3, max_digits=10)
     # ratio is 1:correction_factor
-    correction_factor = models.IntegerField()
+    correction_factor = models.DecimalField(decimal_places=3, max_digits=10)
 
     def __str__(self):
         return self.username
